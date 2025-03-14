@@ -1,7 +1,7 @@
 {
   "name": "@yy-web/use-curd-vue",
   "type": "module",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "use-curd-vue",
   "author": "wangsh <wangsh0508@gmail.com>",
   "license": "MIT",
@@ -23,6 +23,7 @@
     "dist"
   ],
   "scripts": {
+    "prepublishOnly": "pnpm run build",
     "build": "rslib build"
   },
   "dependencies": {

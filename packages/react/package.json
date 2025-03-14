@@ -2,6 +2,7 @@
   "name": "@yy-web/use-curd-react",
   "type": "module",
   "version": "0.0.0",
+  "private": true,
   "description": "use-curd-react",
   "author": "wangsh <wangsh0508@gmail.com>",
   "license": "MIT",
@@ -23,7 +24,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "rslib build"
+    "build2": "rslib build"
   },
   "dependencies": {
     "@rslib/core": "^0.5.4"
