@@ -1,0 +1,21 @@
+{
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "scripts": {
+    "test": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@antfu/eslint-config": "^4.10.1",
+    "@types/node": "^22.13.10",
+    "eslint": "^9.22.0",
+    "pnpm": "^10.6.3",
+    "typescript": "^5.8.2",
+    "vitest": "^3.0.8"
+  }
+}

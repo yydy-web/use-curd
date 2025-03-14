@@ -1,0 +1,33 @@
+{
+  "name": "@yy-web/use-curd-vue",
+  "type": "module",
+  "version": "0.0.0",
+  "description": "use-curd-vue",
+  "author": "wangsh <wangsh0508@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/yy-web/use-curd#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yy-web/use-curd.git"
+  },
+  "bugs": "https://github.com/yy-web/use-curd/issues",
+  "keywords": [],
+  "sideEffects": false,
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/src/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rslib build"
+  },
+  "dependencies": {
+    "@rslib/core": "^0.5.4",
+    "@vueuse/core": "^13.0.0",
+    "vue": "^3.5.13"
+  }
+}

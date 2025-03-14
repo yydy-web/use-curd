@@ -1,0 +1,19 @@
+{
+  "name": "playground",
+  "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "rsbuild dev",
+    "build": "rsbuild build",
+    "preview": "rsbuild preview"
+  },
+  "dependencies": {
+    "@rsbuild/core": "^1.2.19",
+    "@rsbuild/plugin-vue": "^1.0.7",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "@vueuse/core": "^13.0.0",
+    "ant-design-vue": "4.0.2",
+    "vue": "^3.5.13"
+  }
+}
