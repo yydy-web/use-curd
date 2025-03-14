@@ -1,7 +1,7 @@
 {
   "name": "@yy-web/use-curd-vue",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "use-curd-vue",
   "author": "wangsh <wangsh0508@gmail.com>",
   "license": "MIT",
@@ -14,7 +14,10 @@
   "keywords": [],
   "sideEffects": false,
   "exports": {
-    ".": "./dist/index.js"
+    ".": {
+      "types": "./dist/src/index.d.ts",
+      "import": "./dist/index.js"
+    }
   },
   "main": "./dist/index.js",
   "module": "./dist/index.js",
