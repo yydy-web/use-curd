@@ -3,6 +3,11 @@ import type { Ref } from 'vue'
 import { businessKey } from '@yy-web/use-provide'
 import { inject, onMounted, ref } from 'vue'
 
+const initInject = {
+  confirmTip: undefined,
+  resetType: undefined,
+}
+
 export function useSearch<T = object>(options: IUseSeachOptions<T>) {
   const {
     initSearch = () => ({} as Partial<T>),
@@ -16,10 +21,7 @@ export function useSearch<T = object>(options: IUseSeachOptions<T>) {
   const searchForm = ref<Partial<T>>({})
   const cacheSearch = ref<Partial<T>>({})
 
-  const { confirmTip, resetType } = inject(businessKey, {
-    confirmTip: undefined,
-    resetType: undefined,
-  } as BusinessConf)
+  const { confirmTip, resetType } = inject(businessKey, initInject as BusinessConf) || initInject
 
   onMounted(() => {
     firstLoad && searchPage()
@@ -37,7 +39,8 @@ export function useSearch<T = object>(options: IUseSeachOptions<T>) {
   function searchPage(): void {
     searchFlag.value++
     const initForm = initSearch()
-    const cacheSearchParams = Object.assign({}, initForm, searchForm.value)
+    const cacheSearchParams = Object.assign({}, searchForm.value, initForm)
+    searchForm.value = cacheSearchParams
     cacheSearch.value = JSON.parse(JSON.stringify(cacheSearchParams))
     handleSearch && handleSearch(searchParams())
   }

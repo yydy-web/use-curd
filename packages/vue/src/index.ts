@@ -1,3 +1,3 @@
 export * from './provice'
-export * from './use-search'
-export * from './use-table'
+export * from './useSearch'
+export * from './useTable'
