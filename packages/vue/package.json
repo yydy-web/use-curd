@@ -27,11 +27,11 @@
   ],
   "scripts": {
     "prepublishOnly": "pnpm run build",
-    "build": "rslib build"
+    "build": "tsdown"
   },
   "dependencies": {
-    "@rslib/core": "^0.5.4",
-    "@vueuse/core": "^13.0.0",
-    "vue": "^3.5.13"
+    "@vueuse/core": "^13.2.0",
+    "vue": "^3.5.14",
+    "@yy-web/use-provide": "workspace:^"
   }
 }

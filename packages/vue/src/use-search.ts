@@ -1,29 +1,9 @@
 import type { Ref } from 'vue'
-import type { BusinessConf } from './provice'
+import type { BusinessConf, IUseSeachOptions } from '@yy-web/use-provide'
 import { inject, onMounted, ref } from 'vue'
-import { businessKey } from './provice'
+import { businessKey } from '@yy-web/use-provide'
 
-export interface IUseSeachOptions<T> {
-  initSearch?: () => Partial<T>
-  beforeSearch?: (params?: T) => { [key: string]: unknown }
-  handleSearch?: (params?: T) => void
-  handleReset?: () => void
-  beforeExport?: () => void
-  afterExport?: () => void
-  firstLoad?: boolean
-}
-
-export interface UseSearchReturn<T> {
-  searchFlag: Ref<number>
-  searchForm: Ref<Partial<T>>
-  cacheSearch: Ref<Partial<T>>
-  searchParams: () => T
-  searchPage: () => void
-  resetPage: () => void
-  confirmSearch: (content: string, callback: () => PromiseLike<void>, cancelFn?: () => PromiseLike<void>) => void
-}
-
-export function useSearch<T = object>(options: IUseSeachOptions<T>): UseSearchReturn<T> {
+export function useSearch<T = object>(options: IUseSeachOptions<T>) {
   const {
     initSearch = () => ({} as Partial<T>),
     beforeSearch = () => ({}),
@@ -81,3 +61,5 @@ export function useSearch<T = object>(options: IUseSeachOptions<T>): UseSearchRe
     confirmSearch,
   }
 }
+
+export type UseSearchReturn<T> = ReturnType<typeof useSearch<T>>

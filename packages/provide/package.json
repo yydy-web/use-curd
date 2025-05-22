@@ -1,9 +1,8 @@
 {
-  "name": "@yy-web/use-curd-react",
+  "name": "@yy-web/use-provide",
   "type": "module",
-  "version": "0.0.0",
-  "private": true,
-  "description": "use-curd-react",
+  "version": "1.0.0",
+  "description": "use-provide",
   "author": "wangsh <wangsh0508@gmail.com>",
   "license": "MIT",
   "homepage": "https://github.com/yy-web/use-curd#readme",
@@ -15,7 +14,10 @@
   "keywords": [],
   "sideEffects": false,
   "exports": {
-    ".": "./dist/index.js"
+    ".": {
+      "types": "./dist/src/index.d.ts",
+      "import": "./dist/index.js"
+    }
   },
   "main": "./dist/index.js",
   "module": "./dist/index.js",
@@ -24,13 +26,8 @@
     "dist"
   ],
   "scripts": {
+    "prepare:build": "tsdown",
     "prepublishOnly": "pnpm run build",
     "build": "tsdown"
-  },
-  "dependencies": {
-    "@tanstack/react-query": "^5.76.1",
-    "@types/react": "^19.1.5",
-    "@yy-web/use-provide": "workspace:^",
-    "react": "^19.1.0"
   }
 }
