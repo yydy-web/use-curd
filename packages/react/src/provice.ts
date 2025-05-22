@@ -1,5 +1,5 @@
-import { createContext } from 'react'
 import type { BusinessConf } from '@yy-web/use-provide'
+import { createContext } from 'react'
 
 export const BusinessContext = createContext<BusinessConf>({
   table: {

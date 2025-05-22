@@ -1,7 +1,7 @@
-import type { Ref } from 'vue'
 import type { BusinessConf, IUseSeachOptions } from '@yy-web/use-provide'
-import { inject, onMounted, ref } from 'vue'
+import type { Ref } from 'vue'
 import { businessKey } from '@yy-web/use-provide'
+import { inject, onMounted, ref } from 'vue'
 
 export function useSearch<T = object>(options: IUseSeachOptions<T>) {
   const {

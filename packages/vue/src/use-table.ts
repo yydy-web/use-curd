@@ -1,7 +1,7 @@
-import type { BusinessConf, IUseTableOptions, IPageConf } from '@yy-web/use-provide'
+import type { BusinessConf, IPageConf, IUseTableOptions } from '@yy-web/use-provide'
 import { useToggle } from '@vueuse/core'
-import { inject, ref, watch } from 'vue'
 import { businessKey } from '@yy-web/use-provide'
+import { inject, ref, watch } from 'vue'
 import { useSearch } from './use-search'
 
 export function useTable<Search extends object = object, Data extends object = object>(options: IUseTableOptions<Search, Data>) {

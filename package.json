@@ -2,10 +2,10 @@
   "type": "module",
   "version": "1.0.0",
   "private": true,
+  "packageManager": "pnpm@10.11.0",
   "description": "",
   "author": "",
   "license": "ISC",
-  "packageManager": "pnpm@10.11.0",
   "keywords": [],
   "scripts": {
     "prepare": "turbo prepare:build",

@@ -4,5 +4,5 @@ export default defineConfig({
   entry: 'src/index.ts',
   platform: 'browser',
   format: ['esm'],
-  tsconfig: './tsconfig.json'
+  tsconfig: './tsconfig.json',
 })

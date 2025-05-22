@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "@vueuse/core": "^13.2.0",
-    "vue": "^3.5.14",
-    "@yy-web/use-provide": "workspace:^"
+    "@yy-web/use-provide": "workspace:^",
+    "vue": "^3.5.14"
   }
 }
