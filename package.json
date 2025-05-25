@@ -2,25 +2,40 @@
   "type": "module",
   "version": "1.0.0",
   "private": true,
+  "packageManager": "pnpm@10.11.0",
   "description": "",
   "author": "",
   "license": "ISC",
   "keywords": [],
   "scripts": {
+    "prepare": "turbo prepare:build",
     "build": "nr -r build",
+    "lint": "eslint",
     "prepublishOnly": "nr build",
     "release": "bumpp -r && pnpm -r publish",
     "test": "vitest",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test:unit": "vitest",
+    "coverage": "vitest run --coverage"
   },
   "dependencies": {
-    "@antfu/eslint-config": "^4.10.1",
-    "@antfu/ni": "^24.2.0",
-    "@types/node": "^22.13.10",
-    "bumpp": "^10.1.0",
-    "eslint": "^9.22.0",
-    "pnpm": "^10.6.3",
-    "typescript": "^5.8.2",
-    "vitest": "^3.0.8"
+    "@antfu/eslint-config": "^4.13.2",
+    "@antfu/ni": "^24.4.0",
+    "@types/node": "^22.15.21",
+    "@vue/test-utils": "^2.4.6",
+    "bumpp": "^10.1.1",
+    "eslint": "^9.27.0",
+    "playwright": "^1.52.0",
+    "pnpm": "^10.11.0",
+    "taze": "^19.1.0",
+    "tsdown": "^0.12.1",
+    "typescript": "^5.8.3",
+    "vitest-browser-vue": "^0.2.0"
+  },
+  "devDependencies": {
+    "@vitest/coverage-istanbul": "3.1.4",
+    "@vitest/coverage-v8": "3.1.4",
+    "turbo": "^2.5.3",
+    "vitest": "^3.1.4"
   }
 }

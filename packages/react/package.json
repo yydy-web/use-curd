@@ -24,9 +24,13 @@
     "dist"
   ],
   "scripts": {
-    "build2": "rslib build"
+    "prepublishOnly": "pnpm run build",
+    "build": "tsdown"
   },
   "dependencies": {
-    "@rslib/core": "^0.5.4"
+    "@tanstack/react-query": "^5.76.1",
+    "@types/react": "^19.1.5",
+    "@yy-web/use-provide": "workspace:^",
+    "react": "^19.1.0"
   }
 }

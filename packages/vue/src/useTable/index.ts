@@ -1,42 +1,10 @@
-import type { Ref } from 'vue'
-import type { BusinessConf, TableConf } from './provice'
-import type { IUseSeachOptions, UseSearchReturn } from './useSearch'
+import type { BusinessConf, IPageConf, IUseTableOptions } from '@yy-web/use-provide'
 import { useToggle } from '@vueuse/core'
+import { businessKey } from '@yy-web/use-provide'
 import { inject, ref, watch } from 'vue'
-import { businessKey } from './provice'
-import { useSearch } from './useSearch'
+import { useSearch } from '../useSearch'
 
-export interface IResponseTable<Data> {
-  records: Data[]
-  total: number
-}
-
-export interface IPageConf {
-  total: number
-  current: number
-  limit: number
-}
-
-export interface UseTableOptions<Search extends object, Data extends object> extends IUseSeachOptions<Search> {
-  apiAction: (data: Search & Pick<TableConf, 'pageKey' | 'sizeKey'>) => Promise<unknown[] | { [key: string]: unknown }>
-  pagination?: boolean
-  delAction?: (id: string | number) => Promise<boolean>
-  afterSearch?: (result: Data[]) => void
-  limitSize?: number
-}
-
-export interface UseTableReturn<Search extends object, Data extends object>
-  extends Pick<UseSearchReturn<Search>, 'confirmSearch' | 'searchForm' | 'searchFlag' | 'cacheSearch'> {
-  loading: Ref<boolean>
-  dataSource: Ref<Data[]>
-  pageConf: Ref<IPageConf>
-  getTable: () => void
-  delDataRow: (id: string | number, content?: string) => void
-  resetTable: () => void
-  searchTable: () => void
-}
-
-export function useTable<Search extends object, Data extends object = object>(options: UseTableOptions<Search, Data>): UseTableReturn<Search, Data> {
+export function useTable<Search extends object = object, Data extends object = object>(options: IUseTableOptions<Search, Data>) {
   const {
     apiAction,
     firstLoad = true,
@@ -148,3 +116,5 @@ export function useTable<Search extends object, Data extends object = object>(op
     searchTable: searchPage,
   }
 }
+
+export type UseTableReturn<Search extends object, Data extends object = object> = ReturnType<typeof useTable<Search, Data>>
