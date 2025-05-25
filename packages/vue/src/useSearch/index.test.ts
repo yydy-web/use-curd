@@ -1,6 +1,7 @@
 import { describe, expect, it, vi } from 'vitest'
 import { defineComponent, nextTick } from 'vue'
 import { mount, useSetup } from '../.test'
+import { confBusiness } from '../provice'
 import { useSearch } from './index'
 
 const TestComponent = defineComponent({
@@ -103,5 +104,32 @@ describe('use-search', () => {
     await nextTick()
     await vm.searchPage()
     expect(searchFn).toHaveBeenCalledWith({ name: 'test', tel: 'test2' })
+  })
+
+  it ('inject search', async () => {
+    const confirmTip = vi.fn(content => [content])
+    const vm = useSetup(() => {
+      return useSearch({})
+    }, (app) => {
+      confBusiness(app, {
+        confirmTip,
+      })
+    })
+    await nextTick()
+    await vm.confirmSearch('test', () => Promise.resolve(), () => Promise.resolve())
+    expect(confirmTip).toHaveBeenCalled()
+  })
+
+  it ('inject search error', async () => {
+    const confirmTip = vi.fn(content => [content])
+    const vm = useSetup(() => {
+      return useSearch({})
+    }, (app) => {
+      confBusiness(app, {
+        confirmTip,
+      })
+    })
+    await nextTick()
+    await vm.confirmSearch('test', () => Promise.resolve(), () => Promise.resolve())
   })
 })

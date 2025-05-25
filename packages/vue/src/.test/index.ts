@@ -1,12 +1,15 @@
+import type { App } from 'vue'
 import { createApp, defineComponent, h } from 'vue'
 
 type InstanceType<V> = V extends { new (...arg: any[]): infer X } ? X : never
 type VM<V> = InstanceType<V> & { unmount: () => void }
 
-export function mount<V>(Comp: V) {
+export function mount<V>(Comp: V, cb?: (app: App) => void) {
   // @ts-expect-error js dom
   const el = document.createElement('div')
   const app = createApp(Comp as any)
+
+  cb?.(app)
 
   const unmount = () => app.unmount()
   const comp = app.mount(el) as any as VM<V>
@@ -14,7 +17,7 @@ export function mount<V>(Comp: V) {
   return comp
 }
 
-export function useSetup<V>(setup: () => V) {
+export function useSetup<V>(setup: () => V, cb?: (app: App) => void) {
   const Comp = defineComponent({
     setup,
     render() {
@@ -22,5 +25,5 @@ export function useSetup<V>(setup: () => V) {
     },
   })
 
-  return mount(Comp)
+  return mount(Comp, cb)
 }
