@@ -18,6 +18,6 @@ export interface BusinessConf {
   resetType?: string | number | null
 }
 
-export function confBusiness(app: App, config?: BusinessConf) {
+export function confBusiness(app: App, config?: BusinessConf): void {
   app.provide(businessKey, config)
 }
